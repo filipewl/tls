@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/smallest_goals_difference/data_parser"
+require_relative "../lib/smallest_goals_difference/finder"
+
+if ARGV.length != 1
+  puts "Usage: smallest_goals_difference <file_path>"
+  exit 1
+end
+
+file_path = ARGV[0]
+
+unless File.exist?(file_path)
+  puts "File not found: #{file_path}"
+  exit 1
+end
+
+parser = SmallestGoalsDifference::DataParser.new(file_path)
+finder = SmallestGoalsDifference::Finder.new
+finder.find { parser.parse }
+
+puts "Team with the smallest difference in for and against goals: #{finder.team}"
+puts "Smallest difference: #{finder.smallest_difference} (For #{finder.for} - Against #{finder.against})"
