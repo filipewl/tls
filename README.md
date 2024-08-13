@@ -30,6 +30,13 @@ If you prefer not to change file permissions, you can run the script using the R
 ruby bin/smallest_goals_difference data/soccerr.dat
 ```
 
+Example of the output:
+
+```
+Team with the smallest difference in for and against goals: Aston_Villa
+Smallest difference: 1 (For 46 - Against 47)
+```
+
 ## Running the tests
 
 Install the dependencies with Bundler:
